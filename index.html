@@ -6,173 +6,209 @@
     <title>SpIcY</title>
     <style>
       body {
-  margin: 0;
- 
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
 
-}
+      .sidebar {
+        height: 100vh; /* Full viewport height */
+        width: 250px;
+        background-color: rgb(31, 30, 32);
+        left: -250px; 
+        top: 0;
+        padding-top: 60px;
+        position: fixed;
+        transition: left 0.4s;
+      }
 
-.sidebar {
-  height: 100vh; /* Full viewport height */
-  width: 250px;
-  background-color: rgb(31, 30, 32);
-   left: -200px; 
-  top: 0;
-  padding-top: 60px;
-  position: fixed;
-  transition: left 0.4s;
-}
-.sidebar a{
-    text-decoration: none;
-    color: aliceblue;
-    display: block;
-    padding: 15px 20px;
-   
-}
-.sidebar a:hover{
-    color: red;
-}
-.toggle{
-    height: 50px;
-    cursor: pointer;
-    padding: 15px;
-    position: fixed;
-z-index: 2;
+      .sidebar a {
+        text-decoration: none;
+        color: aliceblue;
+        display: block;
+        padding: 15px 20px;
+      }
 
- } 
+      .sidebar a:hover {
+        color: red;
+      }
 
-.toggle div{
-    width: 50px;
-    height: 8px;
-    background: rgb(51, 45, 45);
-    margin: 5px 0;
-    cursor: pointer;
-    } 
-#menu-toggle:checked ~.sidebar{
-    left: 0;
-}
+      .toggle {
+        height: 50px;
+        cursor: pointer;
+        padding: 15px;
+        position: fixed;
+        z-index: 2;
+      }
 
+      .toggle div {
+        width: 50px;
+        height: 8px;
+        background: rgb(51, 45, 45);
+        margin: 5px 0;
+        cursor: pointer;
+      }
 
-#menu-toggle{
-display: none;
-}
-.images {
-  display: grid;
-  grid-template-columns: repeat(4, auto); /* 3 images per row, use default size */
-  gap: 300px;
-  justify-content: center; /* Center the grid horizontally */
-  padding: 250px;
-  column-gap: 0px;     /* Space between columns */
-  row-gap: 150px;        /* More space between top and bottom rows */
-}
-.images img {
- width: 400px;
-  height: 550px;
-  justify-content: center;
- 
-}
-.s{
-    text-align: center;
-}
-.s p {
-    font-size: 25px;
-    font-style: italic;
-}
-.heading{
-    background-color: rgb(255, 255, 255);
-    position: fixed;
-    width: 100%;
-    display: flex;
-   justify-content: center;
-   gap: 50px;
-    
-    
-    
-}
-.ee{
-    cursor: pointer;
-}
+      #menu-toggle:checked ~ .sidebar {
+        left: 0;
+      }
 
+      #menu-toggle {
+        display: none;
+      }
 
+      .images {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr); /* 4 images per row on large screens */
+        gap: 20px; /* Space between images */
+        justify-content: center;
+        padding: 120px 20px 20px; /* Adjust padding */
+      }
 
+      .images img {
+        width: 100%;
+        height: auto;
+        max-width: 400px; /* Maximum image width */
+      }
 
+      .s {
+        text-align: center;
+      }
+
+      .s p {
+        font-size: 18px;
+        font-style: italic;
+      }
+
+      .heading {
+        background-color: rgb(255, 255, 255);
+        position: fixed;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 50px;
+        top: 0;
+        padding: 20px 0;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .tit {
+        margin: 0;
+      }
+
+      .ee {
+        cursor: pointer;
+      }
+
+      /* Mobile Responsiveness */
+      @media screen and (max-width: 768px) {
+        .images {
+          grid-template-columns: 1fr 1fr; /* 2 images per row on medium screens */
+          gap: 10px;
+          padding: 100px 10px 20px;
+        }
+
+        .sidebar {
+          width: 200px;
+        }
+
+        .images img {
+          max-width: 90%; /* Reduce max width for images */
+        }
+
+        .heading {
+          gap: 20px;
+        }
+
+        .tit {
+          font-size: 22px;
+        }
+      }
+
+      @media screen and (max-width: 480px) {
+        .images {
+          grid-template-columns: 1fr; /* 1 image per row on small screens */
+          gap: 15px;
+        }
+
+        .sidebar {
+          width: 180px;
+        }
+
+        .heading {
+          gap: 10px;
+        }
+      }
 
     </style>
 </head>
 <body>
     <div class="heading">
         <h1 class="tit">WELCOME TO FOOD COURT</h1>
-       
     </div>
-   
-    
+
     <input type="checkbox" id="menu-toggle">
-    <label for="menu-toggle"  class="toggle">
-       <div></div>
-       <div></div>
-       <div></div>
+    <label for="menu-toggle" class="toggle">
+        <div></div>
+        <div></div>
+        <div></div>
     </label>
 
     <div class="images">
-        
         <div class="s">
-        <img src="cherries.jpg" alt="cherries">
-        <h1>Cherries, interrupted</h1>
-        <p>Lorem ipsum text praesent tincidunt ipsum lipsum.
+            <img src="cherries.jpg" alt="cherries">
+            <h1>Cherries, interrupted</h1>
+            <p>Lorem ipsum text praesent tincidunt ipsum lipsum. What else?</p>
+        </div>
 
-            What else?</p>
+        <div class="s">
+            <img src="croissant.jpg" alt="croissant">
+            <h1>Le French</h1>
+            <p>Lorem lorem lorem lorem ipsum text praesent tincidunt ipsum lipsum.</p>
+        </div>
+
+        <div class="s">
+            <img src="popsicle.jpg" alt="popsicle">
+            <h1>All I Need Is a Popsicle</h1>
+            <p>Lorem ipsum text praesent tincidunt ipsum lipsum.</p>
+        </div> 
+
+        <div class="s">
+            <img src="salmon.jpg" alt="salmon">
+            <h1>Salmon For Your Skin</h1>
+            <p>Once again, some random text to lorem lorem lorem lorem ipsum text praesent tincidunt ipsum lipsum.</p>
+        </div>   
+
+        <div class="s">
+            <img src="sandwich.jpg" alt="sandwich">
+            <h1>The Perfect Sandwich, A Real NYC Classic</h1>
+            <p>Just some random text, lorem ipsum text praesent tincidunt ipsum lipsum.</p>
+        </div>  
+
+        <div class="s">
+            <img src="steak.jpg" alt="steak">
+            <h1>Let Me Tell You About This Steak</h1>
+            <p>Once again, some random text to lorem lorem lorem lorem ipsum text praesent tincidunt ipsum lipsum.</p>
+        </div> 
+
+        <div class="s">
+            <img src="wine.jpg" alt="wine">
+            <h1>Once Again, Robust Wine and Vegetable Pasta</h1>
+            <p>Lorem ipsum text praesent tincidunt ipsum lipsum.</p>
+        </div>
+
+        <div class="s">
+            <img src="sandwich.jpg" alt="sandwich">
+            <h1>The Perfect Sandwich, A Real NYC Classic</h1>
+            <p>Just some random text, lorem ipsum text praesent tincidunt ipsum lipsum.</p>
+        </div>
     </div>
-
-    <div class="s">
-        <img src="croissant.jpg" alt="croissant">
-       <h1>Le French</h1>
-       <p>Lorem lorem lorem lorem ipsum text praesent tincidunt ipsum lipsum.</p>
-    </div>
-
-     <div class="s">
-        <img src="popsicle.jpg" alt="popsicle">
-        <h1>All I Need Is a Popsicle</h1>
-        <p>Lorem ipsum text praesent tincidunt ipsum lipsum.</p>
-    </div> 
-    
-    
-    <div class="s">
-        <img src="salmon.jpg" alt="salmon">
-        <h1>Salmon For Your Skin</h1>
-        <p>Once again, some random text to lorem lorem lorem lorem ipsum text praesent tincidunt ipsum lipsum.</p>
-    </div>   
-    
-    <div class="s">
-        <img src="sandwich.jpg" alt="sandwich">
-        <h1>The Perfect Sandwich, A Real NYC Classic</h1>
-        <p>Just some random text, lorem ipsum text praesent tincidunt ipsum lipsum.</p>
-    </div>  
-    
-    <div class="s">
-        <img src="steak.jpg" alt="steak">
-        <h1>Let Me Tell You About This Steak</h1>
-        <p>Once again, some random text to lorem lorem lorem lorem ipsum text praesent tincidunt ipsum lipsum.
-
-        </p>
-    </div> 
-    
-    <div class="s">
-        <img src="wine.jpg" alt="wine">
-        <h1>Once Again, Robust Wine and Vegetable Pasta</h1>
-        <p>Lorem ipsum text praesent tincidunt ipsum lipsum.</p>
-    </div>
-    
-    <div class="s">
-        <img src="sandwich.jpg" alt="sandwich">
-        <h1>The Perfect Sandwich, A Real NYC Classic</h1>
-        <p>Just some random text, lorem ipsum text praesent tincidunt ipsum lipsum.</p>
-    </div>  </div>
     
     <div class="sidebar">
         <h2>
-        <a href="">Home</a><br>
-        <a href="">profile</a><br>
-        <a href="">logout</a>
-    </h2>
+            <a href="#">Home</a><br>
+            <a href="#">Profile</a><br>
+            <a href="#">Logout</a>
+        </h2>
     </div>
 </body>
 </html>
